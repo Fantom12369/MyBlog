@@ -1,1 +1,74 @@
-my Web
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fantom — Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="bg-wrap">
+    <video class="bg-video" autoplay muted loop playsinline>
+      <source src="assets/bg.mp4" type="video/mp4">
+    </video>
+    <div class="bg-fallback"></div>
+    <div class="bg-overlay"></div>
+  </div>
+
+  <header class="container">
+    <div class="brand">
+      <div class="nick">Fantom</div>
+      <div class="tag">Python Programmer & Web Developer</div>
+    </div>
+    <nav><a href="#contact">Contact</a></nav>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <h1>Hi — I'm Rupam (Fantom)</h1>
+      <p class="bio">
+        I love building elegant solutions with code. I'm a Python programmer and a frontend web developer skilled in HTML, CSS, and JavaScript. I enjoy crafting clean, performant web experiences and bringing ideas to life on the web.
+      </p>
+      <a class="cta" href="#contact">Let's talk</a>
+
+      <h3>Featured Posts</h3>
+      <div class="grid">
+        <article class="card">
+          <h4>How I structure Python projects</h4>
+          <p>A short guide to organizing modules, virtual environments, and deployment tips.</p>
+        </article>
+        <article class="card">
+          <h4>Responsive layouts: from sketch to code</h4>
+          <p>Design-to-dev workflow for building responsive pages using semantic HTML and CSS.</p>
+        </article>
+        <article class="card">
+          <h4>Intro to Firebase for small sites</h4>
+          <p>Using Firebase Hosting + Firestore to quickly power contact forms and blogs.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Contact</h3>
+      <form>
+        <label>Your name</label>
+        <input required>
+        <label>Email</label>
+        <input type="email" required>
+        <label>Message</label>
+        <textarea rows="4" required></textarea>
+        <button type="submit">Send message</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>Built by Fantom — © <span id="year"></span></footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
