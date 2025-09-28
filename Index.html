@@ -4,69 +4,142 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Fantom — Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Fonts + Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- AOS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Matrix coding background -->
   <div class="bg-wrap">
-    <video class="bg-video" autoplay muted loop playsinline>
-      <source src="assets/bg.mp4" type="video/mp4">
-    </video>
-    <div class="bg-fallback"></div>
+    <canvas id="matrix"></canvas>
     <div class="bg-overlay"></div>
   </div>
 
-  <header class="container">
-    <div class="brand">
-      <div class="nick">Fantom</div>
-      <div class="tag">Python Programmer & Web Developer</div>
+  <!-- Navbar -->
+  <nav class="navbar" data-aos="fade-down">
+    <div class="brand">Fantom</div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <!-- Right side icons -->
+      <li>
+        <a class="social" href="https://www.instagram.com/__maybe__rupam_?igsh=MWpkendibmV4b3RkMQ==" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </li>
+      <li class="social-static" aria-label="Python">
+        <i class="fab fa-python"></i>
+      </li>
+      <li class="social-static" aria-label="HTML5">
+        <i class="fab fa-html5"></i>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section id="home" class="container hero" data-aos="zoom-in">
+    <h1>Hi — I'm Rupam (Fantom)</h1>
+    <p class="bio">
+      I love building elegant solutions with code. I'm a Python programmer and a frontend web developer skilled in HTML, CSS, and JavaScript.
+    </p>
+    <p class="profession">Professional: Python Programmer & Web Developer</p>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="container" data-aos="fade-up">
+    <h2>About Me</h2>
+    <p>
+      Passionate coder who enjoys creating efficient and elegant web solutions. Skilled in Python, HTML, CSS, JavaScript, and building dynamic interfaces.
+    </p>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="container" data-aos="fade-up">
+    <h2>Featured Projects</h2>
+    <div class="grid">
+      <article class="card hover-rise" data-aos="fade-right">
+        <h4>Python Project Structure</h4>
+        <p>Organizing Python projects efficiently with modules and virtual environments.</p>
+      </article>
+      <article class="card hover-rise" data-aos="fade-left">
+        <h4>Responsive Web Design</h4>
+        <p>Building clean and responsive layouts from scratch using HTML/CSS.</p>
+      </article>
+      <article class="card hover-rise" data-aos="fade-right">
+        <h4>Small Blog with Firebase</h4>
+        <p>Using Firebase Hosting & Firestore to quickly launch a personal blog.</p>
+      </article>
     </div>
-    <nav><a href="#contact">Contact</a></nav>
-  </header>
+  </section>
 
-  <main class="container">
-    <section class="hero">
-      <h1>Hi — I'm Rupam (Fantom)</h1>
-      <p class="bio">
-        I love building elegant solutions with code. I'm a Python programmer and a frontend web developer skilled in HTML, CSS, and JavaScript. I enjoy crafting clean, performant web experiences and bringing ideas to life on the web.
-      </p>
-      <a class="cta" href="#contact">Let's talk</a>
+  <!-- Contact -->
+  <section id="contact" class="container" data-aos="fade-up">
+    <h2>Contact Me</h2>
+    <p class="contact-info">
+      For any questions or query, message on <a href="mailto:rupamdas1687@gmail.com">rupamdas1687@gmail.com</a>
+    </p>
+    <form>
+      <label>Your name</label>
+      <input required>
+      <label>Email</label>
+      <input type="email" required>
+      <label>Message</label>
+      <textarea rows="4" required></textarea>
+      <button type="submit">Send message</button>
+    </form>
+  </section>
 
-      <h3>Featured Posts</h3>
-      <div class="grid">
-        <article class="card">
-          <h4>How I structure Python projects</h4>
-          <p>A short guide to organizing modules, virtual environments, and deployment tips.</p>
-        </article>
-        <article class="card">
-          <h4>Responsive layouts: from sketch to code</h4>
-          <p>Design-to-dev workflow for building responsive pages using semantic HTML and CSS.</p>
-        </article>
-        <article class="card">
-          <h4>Intro to Firebase for small sites</h4>
-          <p>Using Firebase Hosting + Firestore to quickly power contact forms and blogs.</p>
-        </article>
-      </div>
-    </section>
+  <footer data-aos="fade-up">Built by Fantom — © <span id="year"></span></footer>
 
-    <section id="contact" class="contact">
-      <h3>Contact</h3>
-      <form>
-        <label>Your name</label>
-        <input required>
-        <label>Email</label>
-        <input type="email" required>
-        <label>Message</label>
-        <textarea rows="4" required></textarea>
-        <button type="submit">Send message</button>
-      </form>
-    </section>
-  </main>
+  <!-- Matrix Background JS -->
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <footer>Built by Fantom — © <span id="year"></span></footer>
+    const c = document.getElementById('matrix');
+    const ctx = c.getContext('2d');
+    function resizeCanvas(){
+      c.width = window.innerWidth;
+      c.height = window.innerHeight;
+    }
+    resizeCanvas();
+    window.addEventListener('resize', resizeCanvas);
 
+    const letters = '01<>[]{}/$#%@'.split('');
+    const fontSize = 16;
+    let drops = Array(Math.floor(c.width / fontSize)).fill(1);
+
+    function draw(){
+      ctx.fillStyle = 'rgba(0,0,0,0.05)';
+      ctx.fillRect(0,0,c.width,c.height);
+      ctx.fillStyle = '#00FF41';
+      ctx.font = fontSize + 'px monospace';
+      for(let i=0;i<drops.length;i++){
+        const text = letters[Math.floor(Math.random()*letters.length)];
+        ctx.fillText(text, i*fontSize, drops[i]*fontSize);
+        if(drops[i]*fontSize > c.height && Math.random() > 0.975){ drops[i] = 0; }
+        drops[i]++;
+      }
+    }
+    setInterval(draw, 35);
+  </script>
+
+  <!-- AOS Init -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
